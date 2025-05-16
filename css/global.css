@@ -1,0 +1,39 @@
+/* Mobile-First CSS Reset */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Smooth Text Rendering */
+html {
+    font-size: 100%; /* Avoid unexpected font scaling */
+    -webkit-text-size-adjust: 100%; /* Prevent iOS font size adjustments */
+}
+
+/* Body Defaults for Better Scaling */
+body {
+    min-height: 100vh; /* Full-height viewport */
+    font-family: 'Montserrat', 'Helvetica', sans-serif; /* Consistent typography */
+    line-height: 1.6; /* Better readability */
+}
+
+/* Image & Media Handling */
+img, video {
+    max-width: 100%; /* Avoid overflow */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+/* Buttons & Form Elements */
+button, input, textarea {
+    font: inherit; /* Consistent typography */
+    border: none;
+    outline: none;
+}
+
+/* Touch Optimization */
+a, button {
+    touch-action: manipulation; /* Improves mobile touch responsiveness */
+}
