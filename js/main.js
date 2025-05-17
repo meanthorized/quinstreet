@@ -1,3 +1,4 @@
-import { createHeader } from './components/header.js';
+import { Header } from './components/header.js';
+import '../css/main.less';
 
-document.body.appendChild(createHeader());
+document.body.appendChild(Header());

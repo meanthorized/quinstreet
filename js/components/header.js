@@ -1,12 +1,15 @@
-export function createHeader() {
+import logoImg from '../../assets/images/logo.svg';
+
+export function Header() {
     const header = document.createElement('header');
     header.className = 'header';
 
     const logo = document.createElement('img');
-    logo.src = '../../assets/images/logo.svg';
+    logo.src = logoImg;
     logo.alt = 'Modernize Home Empowerment Logo';
     logo.className = 'logo';
 
     header.appendChild(logo);
+
     return header;
 }
