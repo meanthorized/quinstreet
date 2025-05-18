@@ -1,4 +1,4 @@
-# Solar Contest Entry Form
+# Contest Entry Form
 A web-based form for submitting contact details to enter a to win a 3rd generation NestLearning Thermostat.
 
 ## Table of Contents
@@ -41,25 +41,15 @@ A web-based form for submitting contact details to enter a to win a 3rd generati
 ## Project Structure
 Since this project is built with vanilla JavaScript, ES modules are organized in a component-like structure, where each component contains its JavaScript logic alongside its corresponding styles. By taking this approach, I'm aiming to enhance modularity, maintainability, and reusability.
 
-📂 quinstreet
- ┣ 📂 assets → Assets such as images
- ┣ 📂 data
- ┣ 📂 js
- ┃ ┣ 📂 components/ → Modular UI components (JS & styles together)
- ┃ ┣ 📂 network/ → API requests functionality
- ┃ ┣ 📂 pages/ → Modular UI pages (JS & styles together)
- ┃ ┣ 📂 utils/
- ┃ ┣ main.js
- ┣ 📂 styles.common/ → Global styles shared across components
- ┃ ┣ 📂 mixins/
- ┃ ┣ _global.less
- ┃ ┣ _layout.less
- ┃ ┣ _mixins.less
- ┃ ┣ _variables.less
- ┃ ┣ main.less
- ┣ package.json → Project dependencies & scripts
- ┣ README.md
- ┣ webpack.config.json → Webpack configuration
+- `quinstreet/assets`
+    - Assets such as images
+- `quinstreet/js/components`
+    - Modular UI components (JS & styles together)
+- `quinstreet/js/pages`
+    - Modular UI pages (JS & styles together)
+- `quinstreet/styles.common/`
+    - Global styles shared across components
+
 
 ---
 ## Build
