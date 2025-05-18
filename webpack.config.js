@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development', // Change to 'production' for minification
@@ -13,12 +13,29 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader',
+            },
+            //     {
+            //         test: /\.less$/,
+            //         use: [
+            //             MiniCssExtractPlugin.loader, // Extracts CSS into separate file
+            //             'css-loader', // Resolves CSS imports
+            //             'less-loader', // Compiles Less to CSS
+            //         ],
+            //     },
+            {
                 test: /\.less$/,
                 use: [
-                    MiniCssExtractPlugin.loader, // Extracts CSS into separate file
-                    'css-loader', // Resolves CSS imports
-                    'less-loader', // Compiles Less to CSS
+                    'style-loader',   // Inject styles into DOM
+                    'css-loader',     // Convert CSS into JS modules
+                    'less-loader',    // Compile LESS into CSS
                 ],
+            },
+            {
+                test: /\.html$/,
+                use: 'html-loader',
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -30,7 +47,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new MiniCssExtractPlugin({ filename: 'css/styles.css' }),
+        // new MiniCssExtractPlugin({ filename: 'css/styles.css' }),
         new HtmlWebpackPlugin({
             template: './index.html', // Uses your existing HTML file
             filename: 'index.html',
@@ -38,8 +55,7 @@ module.exports = {
     ],
     devServer: {
         static: path.resolve(__dirname, 'dist'), // Ensures it serves built files
-        open: true, // Opens the browser automatically
-        port: 3000, // You can change this if needed
+        port: 3000,
         hot: true, // Enables live reloading
     },
     resolve: {

@@ -1,0 +1,28 @@
+@import '../../../../styles.common/mixins/inputs.less';
+
+.input-wrapper {
+    margin-bottom: 20px;
+
+    label.visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    input {
+        .input();
+
+        &.error {
+            .input-error();
+        }
+
+        // &:invalid {
+        //     .input-error();
+        // }
+    }
+}

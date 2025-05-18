@@ -1,4 +1,5 @@
-import logoImg from '../../assets/images/logo.svg';
+import './header.less';
+import logoImg from '../../../assets/images/logo.svg';
 
 export function Header() {
     const header = document.createElement('header');

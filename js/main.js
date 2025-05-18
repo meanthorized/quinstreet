@@ -1,4 +1,14 @@
-import { Header } from './components/header.js';
-import '../css/main.less';
+import '../styles.common/main.less';
+import { Header } from './components/Header/Header.js';
+import { ContestEntry } from './pages/ContestEntry/ContestEntry.js';
 
-document.body.appendChild(Header());
+document.addEventListener('DOMContentLoaded', () => {
+    // <main> tag
+    const main = document.createElement('main');
+    main.className = 'test';
+    main.appendChild(ContestEntry());
+
+    // Append HTML elements & components
+    document.body.appendChild(Header()); // Add <header>
+    document.body.appendChild(main); // Add <main>
+});
