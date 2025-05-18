@@ -3,25 +3,27 @@ import { InputText } from '../InputText/InputText.js';
 import { InputPhone } from '../InputPhone/InputPhone.js';
 import { InputEmail } from '../InputEmail/InputEmail.js';
 import { SubmitButton } from '../SubmitButton/SubmitButton.js';
+import { submitContestEntry } from '../../../network/data.api.js';
 
+export async function handleSubmit(event, form) {
+    event.preventDefault();
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.setAttribute('disabled', true);
+    submitButton.innerText = 'SUBMITTED';
+
+    const formData = new FormData(form);
+
+    try {
+        const responseData = await submitContestEntry(formData);
+
+        console.log("✅ Submission successful:", responseData);
+    } catch (error) {
+        console.log('❌ Server Error', error);
+    }
+}
 
 export function Form() {
-    const form = document.createElement('form');
-    form.className = 'contest-entry-form';
-
-    form.innerHTML = `
-        <div class="title">
-            <h1>Enter to win a 3rd generation Nest Learning Thermostat worth $249.</h1>
-        </div>
-        <section class="contact-information">
-        </section>
-    `;
-
-    const location = document.createElement('div');
-    location.className = 'location';
-
-    const contactInformation = form.querySelector('.contact-information');
-
     const nameInputData = {
         id: 'name',
         label: 'Name',
@@ -30,7 +32,7 @@ export function Form() {
             isRequired: true,
             minLength: 2,
         },
-    }
+    };
     const cityInputData = {
         id: 'city',
         label: 'City',
@@ -38,7 +40,7 @@ export function Form() {
         validationRules: {
             isRequired: false,
         },
-    }
+    };
     const stateInputData = {
         id: 'state',
         label: 'State',
@@ -46,7 +48,7 @@ export function Form() {
         validationRules: {
             isRequired: false,
         },
-    }
+    };
     const phoneNumberInputData = {
         id: 'phone',
         label: 'Phone',
@@ -54,7 +56,7 @@ export function Form() {
         validationRules: {
             isRequired: true,
         },
-    }
+    };
     const emailInputData = {
         id: 'email',
         label: 'Email',
@@ -62,7 +64,26 @@ export function Form() {
         validationRules: {
             isRequired: true,
         },
-    }
+    };
+
+    const form = document.createElement('form');
+    form.className = 'contest-entry-form';
+
+    form.innerHTML = `
+        <div class="title">
+            <h1>Enter to win a 3rd generation Nest Learning Thermostat worth $249.</h1>
+        </div>
+        <div class="contact-information">
+        </div>
+    `;
+
+    const location = document.createElement('div');
+    location.className = 'location';
+
+    const contactInformation = form.querySelector('.contact-information');
+
+    // Attach submission event
+    form.addEventListener('submit', (event) => handleSubmit(event, form));
 
     contactInformation.appendChild(InputText(nameInputData));
 

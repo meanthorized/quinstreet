@@ -10,10 +10,11 @@ export function SubmitButton({ form, textContent }) {
     button.textContent = textContent;
     button.className = 'submit-button';
 
+    // Validate form
     button.addEventListener('click', (event) => {
         event.preventDefault(); // Prevent default submission
 
-        const inputs = form.querySelectorAll('input[required]');
+        const inputs = form.querySelectorAll('input');
         let isFormValid = true;
 
         inputs.forEach((input) => {
@@ -24,10 +25,10 @@ export function SubmitButton({ form, textContent }) {
         });
 
         if (isFormValid) {
-            console.log('✅ Form submitted successfully!');
-            // Handle actual form submission (e.g., API call)
+            console.log('Form valid. Processing to submit');
+            form.dispatchEvent(new Event('submit'));
         } else {
-            console.log('❌ Form contains errors. Please fix them.');
+            console.log('Form invalid. Please fix errors.');
         }
     });
 
