@@ -1,10 +1,22 @@
 import './contestEntry.less';
 import { Form } from '../../components/forms/Form/Form';
+import { InfoBox } from '../../components/InfoBox/InfoBox';
 
 export function ContestEntry() {
     const contestEntryPage = document.createElement('div');
     contestEntryPage.className = 'contest-entry-page';
-    contestEntryPage.appendChild(Form());
+
+    const formContainer = document.createElement('div');
+    formContainer.className = 'form-container';
+
+    const infoContainer = document.createElement('div');
+    infoContainer.className = 'info-container';
+
+    formContainer.appendChild(Form());
+    infoContainer.appendChild(InfoBox());
+
+    contestEntryPage.appendChild(formContainer);
+    contestEntryPage.appendChild(infoContainer);
 
     return contestEntryPage;
 }

@@ -5,7 +5,7 @@ import { ContestEntry } from './pages/ContestEntry/ContestEntry.js';
 document.addEventListener('DOMContentLoaded', () => {
     // <main> tag
     const main = document.createElement('main');
-    main.className = 'test';
+    main.className = 'main-content';
     main.appendChild(ContestEntry());
 
     // Append HTML elements & components

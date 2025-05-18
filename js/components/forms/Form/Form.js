@@ -65,13 +65,15 @@ export function Form() {
             isRequired: true,
         },
     };
+    // const title = `Enter to win a 3rd generation Nest<br>Learning Thermostat worth $249.Enter to win a 3rd generation Nest<br>Learning Thermostat worth $249.Enter to win a 3rd generation Nest<br>Learning Thermostat worth $249.Enter to win a 3rd generation Nest<br>Learning Thermostat worth $249.Enter to win a 3rd generation Nest<br>Learning Thermostat worth $249.Enter to win a 3rd generation Nest<br>Learning Thermostat worth $249.`;
+    const title = `Enter to win a 3rd generation Nest Learning Thermostat worth $249.`;
 
     const form = document.createElement('form');
     form.className = 'contest-entry-form';
 
     form.innerHTML = `
         <div class="title">
-            <h1>Enter to win a 3rd generation Nest Learning Thermostat worth $249.</h1>
+            <h1>${title}</h1>
         </div>
         <div class="contact-information">
         </div>
