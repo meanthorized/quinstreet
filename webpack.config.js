@@ -6,8 +6,8 @@ module.exports = {
     entry: './js/main.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        clean: true, // Automatically cleans old files in `dist`
+        path: path.resolve(__dirname, 'docs'),
+        clean: true, // Automatically cleans old files in `docs`
     },
     module: {
         rules: [
