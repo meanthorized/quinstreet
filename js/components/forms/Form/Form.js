@@ -70,6 +70,7 @@ export function Form() {
 
     const form = document.createElement('form');
     form.className = 'contest-entry-form';
+    form.action = '#';
 
     form.innerHTML = `
         <div class="title">

@@ -26,7 +26,7 @@ export function SubmitButton({ form, textContent }) {
 
         if (isFormValid) {
             console.log('Form valid. Processing to submit');
-            form.dispatchEvent(new Event('submit'));
+            form.requestSubmit();
         } else {
             console.log('Form invalid. Please fix errors.');
         }
