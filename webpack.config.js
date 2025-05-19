@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: 'development', // Change to 'production' for minification
@@ -19,7 +20,7 @@ module.exports = {
             {
                 test: /\.module\.less$/,
                 use: [
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
                     {
                     loader: "css-loader",
                     options: {
@@ -40,7 +41,7 @@ module.exports = {
             {
                 test: /\.less$/,
                 exclude: /\.module\.less$/,  // ✅ Excludes scoped styles from global handling
-                use: ["style-loader", "css-loader", "less-loader"],
+                use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
             },
             {
                 test: /\.html$/,
@@ -56,6 +57,9 @@ module.exports = {
         ],
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: "styles.css", // ✅ Extract styles for GitHub Pages
+        }),
         new HtmlWebpackPlugin({
             template: './index.html', // Uses your existing HTML file
             filename: 'index.html',
