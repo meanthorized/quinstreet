@@ -1,0 +1,17 @@
+@import '../../../../styles.common/mixins/inputs.less';
+
+.input-wrapper {
+    margin-bottom: 20px;
+
+    label.visually-hidden {
+        .input-label-visually-hidden();
+    }
+
+    input {
+        .input();
+
+        &.error {
+            .input-error();
+        }
+    }
+}

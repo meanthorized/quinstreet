@@ -1,14 +1,14 @@
 import { validateInput } from '../../../utils/validateInput';
-import './submitButton.less';
+import * as styles from './submitButton.module.less';
 
 export function SubmitButton({ form, textContent }) {
     const buttonWrapper = document.createElement('div');
-    buttonWrapper.className = 'button-wrapper';
+    buttonWrapper.className = styles['button-wrapper'];
 
     const button = document.createElement('button');
     button.type = 'submit';
     button.textContent = textContent;
-    button.className = 'submit-button';
+    button.className = styles['submit-button'];
 
     // Validate form
     button.addEventListener('click', (event) => {

@@ -1,14 +1,14 @@
+import * as styles from './inputEmail.module.less';
 import { validateInput } from '../../../utils/validateInput';
 
 export function InputEmail({ id, label, placeholder, validationRules }) {
     const inputWrapper = document.createElement('div');
-    inputWrapper.classList.add('input-wrapper');
-    inputWrapper.classList.add(id);
+    inputWrapper.classList.add(styles['input-wrapper']);
 
     const inputLabel = document.createElement('label');
     inputLabel.htmlFor = `${id}-input`;
     inputLabel.textContent = label;
-    inputLabel.className = 'visually-hidden'
+    inputLabel.className = styles['visually-hidden'];
 
     const input = document.createElement('input');
     input.type = 'email';
@@ -20,9 +20,9 @@ export function InputEmail({ id, label, placeholder, validationRules }) {
 
     input.addEventListener('blur', () => {
         if (!validateInput(input, validationRules)) {
-            input.classList.add('error');
+            input.classList.add(styles.error);
         } else {
-            input.classList.remove('error');
+            input.classList.remove(styles.error);
         }
     });
 

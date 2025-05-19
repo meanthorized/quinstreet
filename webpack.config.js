@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development', // Change to 'production' for minification
@@ -17,21 +16,31 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader',
             },
-            //     {
-            //         test: /\.less$/,
-            //         use: [
-            //             MiniCssExtractPlugin.loader, // Extracts CSS into separate file
-            //             'css-loader', // Resolves CSS imports
-            //             'less-loader', // Compiles Less to CSS
-            //         ],
-            //     },
+            {
+                test: /\.module\.less$/,
+                use: [
+                    "style-loader",
+                    {
+                    loader: "css-loader",
+                    options: {
+                        modules: {
+                            auto: true,
+                            localIdentName: "[name]__[local]___[hash:base64:5]",
+                        },
+                    },
+                    },
+                    "less-loader",
+                ],
+                // @DEBUG
+                // include: (resourcePath) => {
+                //     console.log("Processing file:", resourcePath); // ✅ Logs every processed file
+                //     return true;
+                // },
+            },
             {
                 test: /\.less$/,
-                use: [
-                    'style-loader',   // Inject styles into DOM
-                    'css-loader',     // Convert CSS into JS modules
-                    'less-loader',    // Compile LESS into CSS
-                ],
+                exclude: /\.module\.less$/,  // ✅ Excludes scoped styles from global handling
+                use: ["style-loader", "css-loader", "less-loader"],
             },
             {
                 test: /\.html$/,

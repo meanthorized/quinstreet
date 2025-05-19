@@ -1,4 +1,4 @@
-import './infoBox.less';
+import * as styles from './infoBox.module.less';
 
 export function InfoBox() {
     const title = 'EVEN MORE SAVINGS';
@@ -9,21 +9,21 @@ export function InfoBox() {
     const readMoreLink = 'https://www.google.com/';
 
     const infoBox = document.createElement('div');
-    infoBox.className = 'info-box';
+    infoBox.className = styles['info-box'];
 
     infoBox.innerHTML = `
-        <div class="title-section">
-            <div class="right"></div>
-            <div class="center"></div>
-            <p class="title">${title}</p>
-            <div class="left"></div>
+        <div class="${styles['title-section']}">
+            <div class="${styles.right}"></div>
+            <div class="${styles.center}"></div>
+            <p class="${styles.title}">${title}</p>
+            <div class="${styles.left}"></div>
         </div>
-        <div class="info">
-            <p class="advertising">${advertising}</p>
-            <h2 class="subtitle">${subtitle}</h2>
-            <p class="info-text">
+        <div class="${styles.info}">
+            <p class="${styles.advertising}">${advertising}</p>
+            <h2 class="${styles.subtitle}">${subtitle}</h2>
+            <p class="${styles['info-text']}">
                 ${infoText}
-                <a class="read-more-link" href="${readMoreLink}" target="_blank" rel="noreferrer" rel="noopener">
+                <a class="${styles['read-more-link']}" href="${readMoreLink}" target="_blank" rel="noreferrer" rel="noopener">
                     ${readMoreLabel}
                 </a>
             </p>

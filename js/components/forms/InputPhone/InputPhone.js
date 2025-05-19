@@ -1,14 +1,15 @@
 import Inputmask from 'inputmask';
 import { validateInput } from '../../../utils/validateInput';
+import * as styles from './inputPhone.module.less';
 
 export function InputPhone({ id, label, placeholder, validationRules }) {
     const inputWrapper = document.createElement('div');
-    inputWrapper.className = 'input-wrapper';
+    inputWrapper.className = styles['input-wrapper'];
 
     const inputLabel = document.createElement('label');
     inputLabel.htmlFor = id;
     inputLabel.textContent = label;
-    inputLabel.className = 'visually-hidden'
+    inputLabel.className = styles['visually-hidden'];
 
     const input = document.createElement('input');
     input.type = 'tel';
@@ -21,9 +22,9 @@ export function InputPhone({ id, label, placeholder, validationRules }) {
 
     input.addEventListener('blur', () => {
         if (!validateInput(input, validationRules)) {
-            input.classList.add('error');
+            input.classList.add(styles.error);
         } else {
-            input.classList.remove('error');
+            input.classList.remove(styles.error);
         }
     });
 

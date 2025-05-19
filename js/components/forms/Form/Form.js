@@ -1,4 +1,4 @@
-import './form.less';
+import * as styles from './form.module.less';
 import { InputText } from '../InputText/InputText.js';
 import { InputPhone } from '../InputPhone/InputPhone.js';
 import { InputEmail } from '../InputEmail/InputEmail.js';
@@ -69,25 +69,24 @@ export function Form() {
     const title = `Enter to win a 3rd generation Nest Learning Thermostat worth $249.`;
 
     const form = document.createElement('form');
-    form.className = 'contest-entry-form';
+    form.className = styles['contest-entry-form'];
     form.action = '#';
 
     form.innerHTML = `
-        <div class="title">
+        <div class="${styles.title}">
             <h1>${title}</h1>
         </div>
-        <div class="contact-information">
+        <div class="${styles['contact-information']} contact-information-selector">
         </div>
     `;
-
-    const location = document.createElement('div');
-    location.className = 'location';
-
-    const contactInformation = form.querySelector('.contact-information');
 
     // Attach submission event
     form.addEventListener('submit', (event) => handleSubmit(event, form));
 
+    const location = document.createElement('div');
+    location.className = styles.location;
+
+    const contactInformation = form.querySelector('.contact-information-selector');
     contactInformation.appendChild(InputText(nameInputData));
 
     location.appendChild(InputText(cityInputData));
