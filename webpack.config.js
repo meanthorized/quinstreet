@@ -6,7 +6,7 @@ module.exports = {
     entry: './js/main.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'docs'),
+        path: path.resolve(__dirname, 'dist'),
         clean: true, // Automatically cleans old files in `docs`
     },
     module: {
@@ -56,14 +56,13 @@ module.exports = {
         ],
     },
     plugins: [
-        // new MiniCssExtractPlugin({ filename: 'css/styles.css' }),
         new HtmlWebpackPlugin({
             template: './index.html', // Uses your existing HTML file
             filename: 'index.html',
         }),
     ],
     devServer: {
-        static: path.resolve(__dirname, 'dist'), // Ensures it serves built files
+        static: path.resolve(__dirname, 'docs'), // Ensures it serves built files
         port: 3000,
         hot: true, // Enables live reloading
     },
