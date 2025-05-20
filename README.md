@@ -2,9 +2,15 @@
 A web-based form for submitting contact details to enter a to win a 3rd generation NestLearning Thermostat.
 
 ## Table of Contents
+- **[Live Demo](#live-demo)**
 - **[Installation](#installation)**
 - **[Project Structure](#project-structure)**
 - **[Build](#build)**
+
+---
+## Live Demo
+You can view the project live here:
+[QuinStreet Demo](https://meanthorized.github.io/quinstreet/)
 
 ---
 ## Installation
@@ -49,6 +55,8 @@ Since this project is built with vanilla JavaScript, ES modules are organized in
     - Modular UI pages (JS & styles together)
 - `quinstreet/styles.common/`
     - Global styles shared across components
+- `quinstreet/docs`
+    - Production files that are served on GitHub Pages
 
 
 ---
